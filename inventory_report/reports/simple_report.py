@@ -4,9 +4,9 @@ from datetime import date
 class SimpleReport:
     @staticmethod
     def generate(list):
-        oldest_manufacturing = SimpleReport._oldest_manufacturing_date(list)
-        closest_expiration = SimpleReport._closest_expiration_date(list)
-        company = SimpleReport._company_with_more_products(list)
+        oldest_manufacturing = SimpleReport.oldest_manufacturing_date(list)
+        closest_expiration = SimpleReport.closest_expiration_date(list)
+        company = SimpleReport.company_with_more_products(list)
 
         return(
             f"Data de fabricação mais antiga: {oldest_manufacturing}\n"
@@ -15,7 +15,7 @@ class SimpleReport:
         )
 
     @staticmethod
-    def _oldest_manufacturing_date(products_list):
+    def oldest_manufacturing_date(products_list):
         oldest_date = products_list[0]['data_de_fabricacao'].split('-')
 
         for product in products_list:
@@ -34,7 +34,7 @@ class SimpleReport:
         return '-'.join(oldest_date)
 
     @staticmethod
-    def _closest_expiration_date(products_list):
+    def closest_expiration_date(products_list):
         today_date = str(date.today()).split('-')
         closest_date = products_list[0]['data_de_validade'].split('-')
         year = int(closest_date[0]) - int(today_date[0])
@@ -61,9 +61,9 @@ class SimpleReport:
                 closest_date = curr_date
 
         return '-'.join(closest_date)
-    
+
     @staticmethod
-    def _company_with_more_products(products_list):
+    def company_with_more_products(products_list):
         companyes, large, company_name = {}, 0, ''
 
         for product in products_list:

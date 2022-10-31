@@ -12,6 +12,7 @@ class Inventory:
             return Inventory.__csv_file(path, report_type)
         elif Inventory.__file_type(path) == 'xml':
             return Inventory.__xml_file(path, report_type)
+
         return Inventory.__json_file(path, report_type)
 
     def __file_type(path):

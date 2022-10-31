@@ -47,8 +47,3 @@ class Inventory:
                 return SimpleReport().generate(products_list)
             elif report_type == 'completo':
                 return CompleteReport().generate(products_list)
-
-
-
-classe = Inventory()
-result = classe.import_data('inventory_report/data/inventory.csv', 'simples')
